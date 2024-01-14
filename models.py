@@ -1,10 +1,12 @@
 # recipe_manager/models.py
 
+from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, Table
 from sqlalchemy.orm import declarative_base, relationship
-from database import engine
 
 Base = declarative_base()
+engine = create_engine('sqlite:///recipes.db', echo=True)
+
 
 class Recipe(Base):
     __tablename__ = 'recipes'
